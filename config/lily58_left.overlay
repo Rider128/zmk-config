@@ -1,13 +1,21 @@
 /* lily58_left.overlay */
+
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/gpio/gpio.h>
 
-&kscan {
-    row-gpios
-        = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 0 (Chiffres) */
-        , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 1 (QWERTY) */
-        , <&gpio1 7     (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 2 (ASDF) -> Redirigée vers P1.07 */
-        , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 3 (ZXCV) */
-        , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 4 (Pouces) */
-        ;
+/ {
+    /* * On cible le nœud existant "kscan_0" qui est défini dans le fichier de base du Lily58.
+     * ZMK va fusionner ceci avec la config de base :
+     * - Il garde les col-gpios d'origine.
+     * - Il remplace les row-gpios par ceux-ci.
+     */
+    kscan_0 {
+        row-gpios
+            = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 0 */
+            , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 1 */
+            , <&gpio1 7     (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 2 -> P1.07 (Bodge Wire) */
+            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 3 */
+            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 4 */
+            ;
+    };
 };
