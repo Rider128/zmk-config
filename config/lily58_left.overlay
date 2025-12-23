@@ -1,0 +1,12 @@
+/* lily58_left.overlay */
+#include <dt-bindings/zmk/matrix_transform.h>
+
+&kscan0 {
+    row-gpios
+        = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 0 (Chiffres) */
+        , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 1 (QWERTY) */
+        , <&gpio1 7     (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 2 (ASDF) -> Redirigée vers P1.07 */
+        , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 3 (ZXCV) */
+        , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Row 4 (Pouces) */
+        ;
+};
