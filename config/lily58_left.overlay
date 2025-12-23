@@ -1,5 +1,6 @@
 /* lily58_left.overlay */
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/gpio/gpio.h>
 
 &kscan0 {
     row-gpios
